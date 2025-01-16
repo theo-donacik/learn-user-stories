@@ -51,7 +51,7 @@ catch(e) {
 // Senario 1: succssful deposit
 bank.deposit(1234567890, 1000)
 //acc = bank.findAccountById(1234567890)
-if(accounts[0].balance = 6000) {
+if(accounts[0].balance == 6000) {
     console.log('Scenario 1 passed');
 }
 else {
@@ -70,18 +70,18 @@ catch {
 // Senario 3: unsuccssful deposit due to bad deposit value 
 try {
     bank.deposit(1234567890, -1000) 
-    console.log('Scenario 2 failed');
+    console.log('Scenario 3 failed');
 }
 catch {
-    console.log('Scenario 2 passed');
+    console.log('Scenario 3 passed');
 }
 
 // User story #3
 
 // Senario 1: succssful withdrawal
-bank.deposit(1234567890, 2000)
+bank.withdrawal(1234567890, 2000)
 //acc = bank.findAccountById(1234567890)
-if(accounts[0].balance = 4000) {
+if(accounts[0].balance == 4000) {
     console.log('Scenario 1 passed');
 }
 else {
@@ -90,7 +90,7 @@ else {
 
 // Senario 2: unsuccssful withdrawal due to bad id number
 try {
-    bank.deposit(6480973476, 1000) 
+    bank.withdrawal(6480973476, 1000) 
     console.log('Scenario 2 failed');
 }
 catch {
@@ -99,9 +99,9 @@ catch {
 
 // Senario 3: unsuccssful deposit due to bad withdrawal value 
 try {
-    bank.deposit(1234567890, -1000) 
-    console.log('Scenario 2 failed');
+    bank.withdrawal(1234567890, -1000) 
+    console.log('Scenario 3 failed');
 }
 catch {
-    console.log('Scenario 2 passed');
+    console.log('Scenario 3 passed');
 }
