@@ -80,7 +80,6 @@ catch {
 
 // Senario 1: succssful withdrawal
 bank.withdrawal(1234567890, 2000)
-//acc = bank.findAccountById(1234567890)
 if(accounts[0].balance == 4000) {
     console.log('Scenario 1 passed');
 }
@@ -104,4 +103,24 @@ try {
 }
 catch {
     console.log('Scenario 3 passed');
+}
+
+
+// User story #4
+
+// Senario 1: succssful check
+if(bank.checkBalance(1234567890) == 4000) {
+    console.log('Scenario 1 passed');
+}
+else {
+    console.log('Scenario 1 failed');
+}
+
+// Senario 2: unsuccssful check due to bad id number
+try {
+    bank.checkBalance(6480973476) 
+    console.log('Scenario 2 failed');
+}
+catch {
+    console.log('Scenario 2 passed');
 }

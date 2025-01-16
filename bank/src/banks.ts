@@ -113,4 +113,19 @@ export class Bank implements BankType {
         return account.balance -= amount
       }
     }
+
+     /**
+     * @param id - account id
+     * @returns the balance of the account 
+     */
+    checkBalance(id: number): number {
+      var account = this.findAccountById(id)
+
+      if(!account) {
+        throw new Error(`Account number ${id} not found`);
+      }
+      else {
+        return account.balance
+      }
+    }
 }
