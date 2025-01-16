@@ -93,4 +93,24 @@ export class Bank implements BankType {
         return account.balance += amount
       }
     }
+
+    /**
+     * @param id - account id
+     * @param amount - amount to be withdrawn
+     * @returns a the amount withdrawn
+     */
+    withdrawal(id: number, amount: number): number {
+      var account = this.findAccountById(id)
+
+      if(amount < 0) {
+        throw new Error('Must deposit an amount greater than 0');
+      }
+
+      if(!account) {
+        throw new Error(`Account number ${id} not found`);
+      }
+      else {
+        return account.balance -= amount
+      }
+    }
 }
