@@ -22,16 +22,26 @@ export class Bank implements BankType {
     /**
      * 
      * @param id - account id
-     * @returns - true if account id ezists, false otherwise
+     * @returns - true if account id exists, false otherwise
      */
     private findAccountById(id: number): AccountType | undefined {
         return this.accounts.find(account => account.id === id);
     }
 
+     /**
+     * 
+     * @param accountNumber - account id
+     * @returns - true if account id is valid, false otherwise
+     */
     private isAccountNumberInvalid(accountNumber: number): boolean {
         return accountNumber.toString().length !== 10;
     }
 
+     /**
+     * 
+     * @param username - A user's username
+     * @returns - true if username exists, false otherwise
+     */
     private isUsernameExisits(username: string): boolean {
         return this.usernames.includes(username);
     }
@@ -62,5 +72,25 @@ export class Bank implements BankType {
         };
         this.accounts.push(account);
         return account;
+    }
+
+    /**
+     * @param id - account id
+     * @param amount - amount to be deposited
+     * @returns a the amount deposited
+     */
+    deposit(id: number, amount: number): number {
+      var account = this.findAccountById(id)
+
+      if(amount < 0) {
+        throw new Error('Must deposit an amount greater than 0');
+      }
+
+      if(!account) {
+        throw new Error(`Account number ${id} not found`);
+      }
+      else {
+        return account.balance += amount
+      }
     }
 }
